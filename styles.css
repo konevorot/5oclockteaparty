@@ -467,3 +467,43 @@ body.editing .wl-group.hint .gift .gphoto{margin:0 22px}
 
 /* четыре детали в ряд на широком экране */
 .cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+/* ============================================================
+   ШАПКА В ОДИН ЭКРАН
+   ============================================================ */
+.hero{
+  min-height:calc(100svh - 60px);
+  display:flex;align-items:center;
+  padding:clamp(24px,4vh,48px) 0 clamp(20px,3vh,36px);
+}
+.hero .wrap{width:100%}
+.portrait-wrap{gap:10px;margin:0 0 clamp(14px,2.4vh,22px)}
+.portrait{width:clamp(92px,11vh,124px)}
+.portrait-note{font-size:.86rem;max-width:32ch}
+.birds{width:min(170px,44vw);margin-bottom:clamp(8px,1.6vh,14px)}
+.hero .eyebrow{margin:0 0 .55rem;font-size:.66rem}
+.hero h1{font-size:clamp(2.2rem,6.2vw,4.9rem);margin:0 0 .5rem}
+.hero .subtitle{font-size:clamp(.98rem,1.9vw,1.32rem);margin:0 0 clamp(14px,2.2vh,22px)}
+.hero .rule{margin-bottom:clamp(16px,2.6vh,26px)}
+.hero .meta{margin-top:0;gap:clamp(16px,4vw,48px)}
+.hero .meta .k{font-size:.6rem;margin:0 0 4px}
+.hero .meta .v{font-size:clamp(.94rem,1.5vw,1.2rem)}
+[data-theme="willow"] .steam{opacity:.08}
+.branch{width:min(240px,28vw)}
+
+/* кнопки календаря */
+.cal-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:clamp(18px,3vh,30px)}
+.cal-row .btn{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;padding:10px 20px}
+.cal-row .btn svg{width:15px;height:15px;flex:0 0 auto}
+.place .cta .btn[data-cal]{font-size:.82rem}
+
+@media(max-width:680px){
+  .hero{min-height:auto;padding:44px 0 40px}
+  .hero .meta{gap:22px}
+  .hero .meta div{flex:1 1 40%}
+  .branch{width:44vw;opacity:.1}
+}
+@media(max-height:680px) and (min-width:681px){
+  .hero{min-height:auto;padding:40px 0}
+  .portrait{width:88px}
+}

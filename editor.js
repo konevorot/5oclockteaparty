@@ -12,7 +12,7 @@
 (function(){
   var PASS="060288";
   var LS_TEXT="foc_text", LS_PHOTO="foc_photo", LS_THEME="foc_theme", LS_HREF="foc_href";
-  var LS_WISH="foc_wish";
+  var LS_WISH="foc_wish", LS_EVENT="foc_event";
   var ICONS=["i-cup","i-pot","i-tray","i-leaf","i-brick","i-book","i-bottle","i-ring","i-vase","i-print","i-moon","i-watch"];
   var SS_UNLOCK="foc_unlock";
   var THEMES=[
@@ -29,6 +29,7 @@
     catch(e){ alert("Не хватило места в браузере. Попробуйте фото поменьше или удалите лишние."); } }
   var texts=load(LS_TEXT), photos=load(LS_PHOTO), hrefs=load(LS_HREF);
   var wish=load(LS_WISH);
+  var eventCfg=load(LS_EVENT);
   if(!wish.added) wish.added=[];
   if(!wish.edits) wish.edits={};
   if(!wish.deleted) wish.deleted=[];
@@ -79,7 +80,7 @@
       '<div class="foot">'+
         (o.href ? '<a class="view" href="'+esc(o.href)+'" target="_blank" rel="noopener">Посмотреть</a>' : '')+
         '<button class="btn book">Я дарю</button>'+
-        '<p class="who"></p><button class="cancel">передумал(а)</button>'+
+        '<p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button>'+
       '</div>';
   }
   function esc(x){ return String(x||"").replace(/[&<>"]/g,function(c){
@@ -160,6 +161,7 @@
       var c=document.querySelector('.gift[data-id="'+id+'"]'); if(c) c.remove();
     });
 
+    applyEvent();
     ensureHintPhotos();
     Object.keys(photos).forEach(function(k){
       if(k.indexOf("gp-")===0) applyPhoto(k,photos[k]);
@@ -167,6 +169,11 @@
     if(window.focRefreshGifts) window.focRefreshGifts();
   }
   applyAll();
+
+  function applyEvent(){
+    var ev=document.getElementById("event"); if(!ev) return;
+    Object.keys(eventCfg).forEach(function(k){ ev.setAttribute("data-"+k, eventCfg[k]); });
+  }
 
   /* ---------- вход по паролю ---------- */
   function unlocked(){ try{ return sessionStorage.getItem(SS_UNLOCK)==="1"; }catch(e){ return false; } }
@@ -206,6 +213,7 @@
       }).join("")+'</div>'+
       '<span class="sep"></span>'+
       '<button class="ebtn" id="e-link">Ссылки</button>'+
+      '<button class="ebtn" id="e-event">Событие</button>'+
       '<button class="ebtn" id="e-wish">+ Желание</button>'+
       '<button class="ebtn" id="e-reset">Сбросить</button>'+
       '<span class="sep"></span>'+
@@ -280,7 +288,7 @@
 
     document.getElementById("e-reset").addEventListener("click",function(){
       if(!confirm("Вернуть исходные тексты, фото и стиль? Ваши правки пропадут.")) return;
-      [LS_TEXT,LS_PHOTO,LS_THEME,LS_HREF,LS_WISH].forEach(function(k){ localStorage.removeItem(k); });
+      [LS_TEXT,LS_PHOTO,LS_THEME,LS_HREF,LS_WISH,LS_EVENT].forEach(function(k){ localStorage.removeItem(k); });
       location.reload();
     });
 
@@ -305,6 +313,28 @@
       a.href=URL.createObjectURL(blob); a.download="index.html"; a.click();
       setTimeout(function(){ URL.revokeObjectURL(a.href); },1000);
       alert("Файл index.html скачан.\n\nЗагрузите его в репозиторий вместо старого — и гости увидят вашу версию.\nТексты, фото и стиль уже внутри файла.");
+    });
+
+    document.getElementById("e-event").addEventListener("click",function(){
+      var ev=document.getElementById("event");
+      if(!ev){ alert("Блок события не найден."); return; }
+      var fields=[
+        ["date","Дата (ГГГГ-ММ-ДД)"],
+        ["start","Начало (ЧЧ:ММ, московское)"],
+        ["end","Конец (ЧЧ:ММ)"],
+        ["title","Название события"],
+        ["loc","Адрес"],
+        ["desc","Описание"]
+      ];
+      for(var i=0;i<fields.length;i++){
+        var k=fields[i][0];
+        var v=prompt(fields[i][1]+":", ev.getAttribute("data-"+k)||"");
+        if(v===null) return;
+        ev.setAttribute("data-"+k, v);
+        eventCfg[k]=v;
+      }
+      save(LS_EVENT,eventCfg);
+      alert("Событие обновлено. Кнопки «В календарь» теперь используют новые данные.");
     });
 
     document.getElementById("e-close").addEventListener("click",function(){ setEditing(false); });

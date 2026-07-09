@@ -65,10 +65,16 @@
       if(!g.dataset.group) g.dataset.group="g"+(++n);
     });
   }
+  function isHintGroup(id){
+    var g=document.querySelector('.wl-group[data-group="'+id+'"]');
+    return !!(g && g.classList.contains("hint"));
+  }
   function giftHTML(o){
-    return '<div class="ico"><svg><use href="#'+o.icon+'"></use></svg></div>'+
+    var head='<div class="ico"><svg><use href="#'+o.icon+'"></use></svg></div>'+
       '<h4>'+esc(o.title)+'</h4>'+
-      '<p class="desc">'+esc(o.desc||"")+'</p>'+
+      '<p class="desc">'+esc(o.desc||"")+'</p>';
+    if(isHintGroup(o.group)) return head;   // подсказка: ни ссылки, ни брони
+    return head+
       '<div class="seal"><span>ЗАНЯТО</span></div>'+
       '<div class="foot">'+
         (o.href ? '<a class="view" href="'+esc(o.href)+'" target="_blank" rel="noopener">Посмотреть</a>' : '')+
@@ -85,7 +91,7 @@
       var d=document.createElement("div");
       d.className="gphoto";
       d.dataset.photo="gp-"+card.dataset.id;
-      card.insertBefore(d, card.querySelector(".ico"));
+      card.insertBefore(d, card.firstChild);
     });
   }
 
@@ -125,7 +131,8 @@
       card.querySelector("h4").textContent=o.title;
       card.querySelector(".desc").textContent=o.desc||"";
       var link=card.querySelector("a.view");
-      if(o.href){
+      var hintCard = !!card.closest(".wl-group.hint");
+      if(o.href && !hintCard){
         if(!link){ link=document.createElement("a"); link.className="view"; link.target="_blank"; link.rel="noopener";
           link.textContent="Посмотреть"; card.querySelector(".foot").prepend(link); }
         link.href=o.href;
@@ -226,8 +233,9 @@
     fileInput.addEventListener("change",function(){
       var f=fileInput.files[0]; if(!f||!pendingKey) return;
       var key=pendingKey; pendingKey=null;
-      var maxW = key.indexOf("gp-")===0 ? 620 : 1400;
-      var q    = key.indexOf("gp-")===0 ? 0.72 : 0.82;
+      var small = key.indexOf("gp-")===0 || key==="portrait";
+      var maxW = small ? 620 : 1400;
+      var q    = small ? 0.74 : 0.82;
       shrink(f,maxW,q,function(url){
         photos[key]=url; save(LS_PHOTO,photos);
         applyPhoto(key,url);

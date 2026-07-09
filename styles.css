@@ -398,56 +398,32 @@ body.editing .gift .gphoto:hover{filter:brightness(.94)}
 .wl-group.hint .gift h4{padding-right:32px}
 
 /* ============================================================
-   WILLOW — плотнее
+   ПОРТРЕТ В ШАПКЕ
    ============================================================ */
+.portrait-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin:0 0 30px}
+.portrait{width:clamp(130px,17vw,168px);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:var(--bg-alt);position:relative;border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;color:var(--soft);font-size:.74rem;text-align:center;padding:14px;
+  border:1px dashed var(--line);border-radius:50%}
+.portrait .placeholder svg{width:26px;height:26px;opacity:.6}
+[data-theme="willow"] .portrait::after{content:"";position:absolute;inset:6px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.5);pointer-events:none;z-index:2}
+[data-theme="willow"] .portrait{border-color:var(--accent);border-width:1.5px}
+.portrait-note{font-family:var(--display);font-style:italic;font-size:.94rem;color:var(--soft);
+  max-width:34ch;margin:0;line-height:1.45}
+body.editing .portrait{cursor:pointer}
+body.editing .portrait:hover{filter:brightness(.94)}
 
-/* решётчатая подложка на чётных секциях */
-[data-theme="willow"] section.alt{
-  background-color:var(--bg-alt);
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'><g fill='none' stroke='%233a5f8a' stroke-width='0.7' opacity='0.13'><path d='M0 28L28 0l28 28-28 28z'/><path d='M14 28l14-14 14 14-14 14z'/><circle cx='28' cy='28' r='2.4'/></g></svg>");
-  background-size:56px 56px;
-}
-[data-theme="willow"] .wl-group,[data-theme="willow"] .program{position:relative;z-index:1}
-
-/* мостик с тремя фигурами — подпись под каждым заголовком раздела */
-[data-theme="willow"] .sec-head::after{
-  content:"";display:block;width:150px;height:34px;margin:18px auto 0;opacity:.75;
-  background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 34'><g fill='none' stroke='%233a5f8a' stroke-width='1.1' stroke-linecap='round'><path d='M6 26c26 0 40-13 69-13s43 13 69 13'/><path d='M20 24l4-6M34 20l3-6M52 16l3-6M96 16l3-6M114 20l3-6M128 24l4-6'/><circle cx='63' cy='11' r='2.6'/><path d='M63 14v5'/><circle cx='75' cy='9' r='2.6'/><path d='M75 12v5'/><circle cx='87' cy='11' r='2.6'/><path d='M87 14v5'/></g></svg>");
-}
-[data-theme="willow"] .sec-head .rule{display:none}
-
-/* уголки-скобки на карточках */
-[data-theme="willow"] .gift::before,[data-theme="willow"] .gift::after{
-  content:"";position:absolute;width:15px;height:15px;pointer-events:none;opacity:.42;z-index:3;
-  border-color:var(--accent);border-style:solid;border-width:0}
-[data-theme="willow"] .gift::before{top:8px;left:8px;border-top-width:1px;border-left-width:1px}
-[data-theme="willow"] .gift::after{bottom:8px;right:8px;border-bottom-width:1px;border-right-width:1px}
-
-/* двойной кант у кнопок — как ободок блюдца */
-[data-theme="willow"] .btn{position:relative;box-shadow:inset 0 0 0 1px var(--bg),inset 0 0 0 2px var(--accent)}
-[data-theme="willow"] .btn.ghost{box-shadow:inset 0 0 0 1px transparent,inset 0 0 0 1px var(--accent)}
-[data-theme="willow"] .btn:hover{opacity:.9}
-
-/* двойная линия под навигацией */
-[data-theme="willow"] nav{border-bottom:1px solid var(--line);box-shadow:0 3px 0 -2px var(--accent)}
-
-/* цифры программы — в клейме */
-[data-theme="willow"] .program .item{position:relative}
-[data-theme="willow"] .program .t{display:inline-block;border:1px solid var(--line);border-radius:50%;
-  width:74px;height:74px;line-height:72px;text-align:center;font-size:1.02rem;background:var(--surface)}
-@media(max-width:520px){[data-theme="willow"] .program .t{width:58px;height:58px;line-height:56px;font-size:.86rem}}
-
-/* пагода в подвале */
-[data-theme="willow"] footer::before{
-  content:"";display:block;width:90px;height:56px;margin:0 auto 20px;opacity:.5;
-  background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 56'><g fill='none' stroke='%233a5f8a' stroke-width='1.1' stroke-linecap='round'><path d='M45 3v5'/><path d='M28 14h34M24 14c6-4 12-6 21-6s15 2 21 6'/><path d='M31 24h28M27 24c5-4 10-6 18-6s13 2 18 6'/><path d='M34 34h22M30 34c4-4 9-6 15-6s11 2 15 6'/><path d='M35 34v18h20V34'/><path d='M42 52V42h6v10'/><path d='M14 52h62'/></g></svg>");
-}
-
-/* тонкая линия-ива в разделителе финала */
-[data-theme="willow"] .finale .rule{width:120px;height:10px;background:none;opacity:.7;
-  background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10'><g fill='none' stroke='%233a5f8a' stroke-width='1'><path d='M2 5h40M78 5h40'/><path d='M52 5c3-3 5-3 8 0s5 3 8 0'/></g></svg>")}
-
-/* карточки деталей — уголок узора */
-[data-theme="willow"] .detail{
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='none' stroke='%233a5f8a' stroke-width='0.8' opacity='0.16'><path d='M60 0L30 30M60 12L42 30M60 24L54 30'/></g></svg>");
-  background-repeat:no-repeat;background-position:top right}
+/* ============================================================
+   ПОДСКАЗОЧНЫЙ РАЗДЕЛ: без бронирования
+   ============================================================ */
+.wl-group.hint .gift .foot,
+.wl-group.hint .gift .seal,
+.wl-group.hint .gift .who,
+.wl-group.hint .gift .cancel{display:none!important}
+.wl-group.hint .gift{min-height:0;cursor:default}
+.wl-group.hint .gift:hover{transform:none;box-shadow:none}
+.wl-group.hint .gift .desc{margin-bottom:0}
+.wl-group.hint .gift.taken{opacity:1;background:var(--surface)}

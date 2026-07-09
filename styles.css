@@ -575,3 +575,51 @@ body.editing .host-photo:hover{filter:brightness(.94)}
 .hosts .thanks-text b{font-weight:600;color:var(--ink)}
 .hosts .thanks-text i{font-family:var(--display);font-style:italic;color:var(--ink)}
 @media(max-width:560px){.host-row{gap:30px}}
+
+/* ============================================================
+   ВИШЛИСТ КОМПАКТНЕЕ
+   Он самый длинный на странице — сжимаем плотность,
+   не трогая остальные разделы.
+   ============================================================ */
+#wishlist{padding:clamp(44px,6vw,74px) 0}
+#wishlist .sec-head{margin-bottom:clamp(18px,2.4vw,28px)}
+#wishlist .wl-note{font-size:.84rem;margin-bottom:clamp(24px,3.4vw,38px)}
+.wl-group{margin-bottom:clamp(26px,3.4vw,40px)}
+.wl-group h3{font-size:1.28rem}
+.wl-group .gnote{font-size:.8rem;margin-bottom:16px}
+
+#wishlist .grid{grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:12px}
+#wishlist .gift{min-height:0;padding:18px 16px 15px;border-radius:calc(var(--radius) + 2px)}
+#wishlist .gift .ico{width:22px;height:22px;margin-bottom:10px}
+#wishlist .gift h4{font-size:1.04rem;line-height:1.22;margin:0 0 4px}
+#wishlist .gift .desc{font-size:.8rem;line-height:1.45}
+#wishlist .gift .foot{margin-top:14px;gap:10px}
+#wishlist .gift a.view{font-size:.76rem}
+#wishlist .gift .book{font-size:.76rem;padding:7px 14px}
+#wishlist .gift .who{font-size:.74rem}
+#wishlist .gift .cancel{font-size:.74rem}
+#wishlist .gift .seal{width:56px;height:56px;top:10px;right:10px}
+#wishlist .gift .seal span{font-size:.5rem}
+
+/* карточки-подсказки: ниже кадр, четыре в ряд */
+.wl-group.hint .grid{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))}
+.wl-group.hint .gift .gphoto{aspect-ratio:3/2}
+.wl-group.hint .gift h4{margin:14px 16px 4px;padding-right:40px;font-size:1.02rem}
+.wl-group.hint .gift .desc{margin:0 16px 16px}
+.wl-group.hint .gift .ico{margin-top:14px;right:14px;width:19px;height:19px}
+.wl-group.hint .gift:hover{transform:translateY(-2px)}
+
+@media(max-width:520px){
+  #wishlist .grid,.wl-group.hint .grid{grid-template-columns:1fr 1fr;gap:10px}
+  #wishlist .gift{padding:14px 12px 12px}
+  #wishlist .gift h4{font-size:.94rem}
+  #wishlist .gift .desc{font-size:.76rem}
+}
+
+/* ============================================================
+   ПОСТСКРИПТУМ
+   ============================================================ */
+.postscript{max-width:46ch;margin:34px auto 0;padding-top:24px;border-top:1px solid var(--line);
+  font-size:.86rem;line-height:1.65;color:var(--soft)}
+.postscript .ps{font-family:var(--display);font-style:italic;color:var(--accent);
+  letter-spacing:.04em;margin-right:6px}

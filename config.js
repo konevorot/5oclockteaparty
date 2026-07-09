@@ -1,12 +1,12 @@
 /* ============================================================
-   Общие отметки в вишлисте (кто что дарит) — через Supabase.
-   Без этого сайт полностью работает, но отметки видны
-   только в браузере того, кто их поставил.
+   Подключение общего хранилища отметок вишлиста (Supabase).
+   Ключ publishable предназначен для публикации в коде страницы —
+   его можно спокойно держать в открытом репозитории.
+   Доступ к базе ограничен политиками из supabase.sql.
 
-   Где взять: supabase.com → ваш проект → Project Settings → API
-   Ключ anon (public) не секретный, его можно класть на GitHub.
+   ВАЖНО: секретный ключ (sb_secret_…) сюда вставлять нельзя.
    ============================================================ */
 window.WISHLIST_CONFIG = {
-  SUPABASE_URL:      "https://ВАШ-ПРОЕКТ.supabase.co",
-  SUPABASE_ANON_KEY: "ВАШ-ANON-PUBLIC-KEY"
+  SUPABASE_URL:      "https://gngfutwstycjwzacexib.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_OuJW5AHnD3myhucIbAuBZQ_xjA_p7IP"
 };

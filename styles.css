@@ -4,8 +4,20 @@
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300&family=Golos+Text:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap');
 
-/* ---------- Стиль 1: Селадон (по умолчанию) ---------- */
+/* ---------- Стиль 0: Willow (по умолчанию) ----------
+   Кобальт по фарфоровой белизне. Узор «ива» — английское
+   подражание китайскому фарфору, 1780-е.                  */
 :root,
+[data-theme="willow"]{
+  --bg:#f7f6f1; --bg-alt:#eef1f4; --surface:#fdfdfb;
+  --ink:#1c3557; --soft:#5a6f8a; --accent:#3a5f8a; --line:rgba(28,53,87,.16);
+  --mark:#8a6a3a; --seal:#1c3557;
+  --display:"Cormorant Garamond",Georgia,serif; --body:"Inter",system-ui,sans-serif;
+  --display-weight:400; --tracking:0em; --radius:6px;
+  --willow:1;
+}
+
+/* ---------- Стиль 1: Селадон ---------- */
 [data-theme="celadon"]{
   --bg:#f1f0e8; --bg-alt:#e6e8de; --surface:#fbfaf4;
   --ink:#242a22; --soft:#5d6459; --accent:#3f5a43; --line:rgba(36,42,34,.13);
@@ -228,3 +240,52 @@ body.editing [data-photo]:hover{filter:brightness(.94)}
 
 @media print{#editor-bar,#editor-open,.edit-hint{display:none!important}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============================================================
+   ОРНАМЕНТЫ WILLOW
+   Показываются только в теме willow (--willow: 1).
+   ============================================================ */
+.willow-only{display:none}
+[data-theme="willow"] .willow-only{display:block}
+
+/* ласточки над заголовком */
+.birds{width:min(240px,60vw);margin:0 auto 6px;color:var(--accent);opacity:.9}
+.birds svg{width:100%;height:auto}
+
+/* ивовая ветвь в углах шапки */
+.branch{position:absolute;top:0;width:min(300px,34vw);color:var(--accent);opacity:.22;z-index:1;pointer-events:none}
+.branch.left{left:0}
+.branch.right{right:0;transform:scaleX(-1)}
+@media(max-width:680px){.branch{opacity:.13;width:46vw}}
+
+/* орнаментальный кант между разделами */
+.fret{height:16px;width:100%;color:var(--accent);opacity:.55;margin:0}
+.fret svg{width:100%;height:16px;display:block}
+
+/* кант вокруг карточек-деталей — как борт тарелки */
+[data-theme="willow"] .detail{position:relative}
+[data-theme="willow"] .detail::before{content:"";position:absolute;inset:6px;border:1px solid var(--line);
+  border-radius:calc(var(--radius) - 3px);pointer-events:none}
+[data-theme="willow"] .detail{padding:32px 30px}
+
+/* печать в вишлисте — синее клеймо на донце */
+[data-theme="willow"] .gift .seal{border-width:1.5px}
+[data-theme="willow"] .gift.taken{background:var(--bg-alt)}
+
+/* фото в рамке-медальоне */
+[data-theme="willow"] .gallery figure{border:1px solid var(--line)}
+[data-theme="willow"] .gallery figure::after{content:"";position:absolute;inset:7px;
+  border:1px solid rgba(255,255,255,.55);pointer-events:none;z-index:2}
+
+/* время в программе — как номер на клейме */
+[data-theme="willow"] .program .t{color:var(--accent);letter-spacing:.02em}
+
+/* капитель у первой буквы повода */
+[data-theme="willow"] #povod .prose::first-letter{font-family:var(--display);font-size:3.1em;
+  float:left;line-height:.86;padding:.06em .14em 0 0;color:var(--accent)}
+
+/* тише пар в willow — вместо него ветви */
+[data-theme="willow"] .steam{opacity:.12}
+
+/* точка Willow в переключателе стилей */
+.theme-dots button[data-t="willow"]{background:linear-gradient(135deg,#f7f6f1 45%,#3a5f8a 45%)}

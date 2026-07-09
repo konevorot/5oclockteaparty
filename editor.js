@@ -9,6 +9,7 @@
 (function(){
   var LS_TEXT="foc_text", LS_PHOTO="foc_photo", LS_THEME="foc_theme", LS_HREF="foc_href";
   var THEMES=[
+    {id:"willow",  name:"Willow"},
     {id:"celadon", name:"Селадон"},
     {id:"ink",     name:"Тушь"},
     {id:"paper",   name:"Бумага"},
@@ -31,7 +32,7 @@
   }
 
   function applyAll(){
-    applyTheme(localStorage.getItem(LS_THEME)||"celadon");
+    applyTheme(localStorage.getItem(LS_THEME)||"willow");
     Object.keys(texts).forEach(function(k){
       var el=document.querySelector('[data-edit="'+k+'"]');
       if(el) el.innerHTML=texts[k];
@@ -167,7 +168,7 @@
     clone.querySelectorAll("#editor-bar,.edit-hint,#editor-open,input[type=file]").forEach(function(n){n.remove();});
     clone.querySelectorAll('script[src="editor.js"]').forEach(function(n){n.remove();});
     clone.querySelectorAll("[contenteditable]").forEach(function(n){ n.removeAttribute("contenteditable"); n.removeAttribute("spellcheck"); });
-    clone.setAttribute("data-theme", localStorage.getItem(LS_THEME)||"celadon");
+    clone.setAttribute("data-theme", localStorage.getItem(LS_THEME)||"willow");
     var html="<!DOCTYPE html>\n"+clone.outerHTML;
     var blob=new Blob([html],{type:"text/html;charset=utf-8"});
     var a=document.createElement("a");

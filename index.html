@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="celadon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five o'clock — приглашение на чай</title>
+<meta name="description" content="Приглашение на день рождения. Five o'clock tea.">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-tray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M6 8V6h12v2M3 13h18"/></symbol>
+  <symbol id="i-pot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12a6 6 0 0 1 12 0v3a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M17 11l3-2M9 6l1.5-2h3L15 6"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h11v3a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2M8 6c0-1 .8-1.5.8-2.5M11.2 6c0-1 .8-1.5.8-2.5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-6 13-14 13z"/><path d="M6 18C9 14 12 11 16 9"/></symbol>
+  <symbol id="i-brick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="10" rx="1.5"/><path d="M12 7v10M4 12h16"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 2-2h11v16H7a2 2 0 0 0-2 2z"/><path d="M5 19a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-bottle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3l1 2v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l1-2z"/><path d="M9 12h6"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="5"/><path d="M9 7l3-4 3 4M12 3v7"/></symbol>
+  <symbol id="i-vase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8l-1 3a5 5 0 0 1 0 8l1 5H8l1-5a5 5 0 0 1 0-8z"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 8h8v5H8zM8 16h8"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14a8 8 0 1 1-9-11 6.5 6.5 0 0 0 9 11z"/></symbol>
+  <symbol id="i-watch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9 7l.5-3h5L15 7M9 17l.5 3h5l.5-3M12 10v2.5l1.5 1"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M3 16l5-4 4 3 3-2 6 5"/></symbol>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="wrap">
+    <span class="mark" data-edit="nav.mark">Five o'clock</span>
+    <ul>
+      <li><a href="#povod">Повод</a></li>
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#gallery">Настроение</a></li>
+      <li><a href="#place">Место</a></li>
+      <li><a href="#wishlist">Вишлист</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="steam" aria-hidden="true">
+    <svg viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice">
+      <path d="M600 590c-4-60 16-74 16-118s-22-56-22-104 28-68 28-116-24-58-24-102" stroke="currentColor" stroke-width="1"/>
+      <path d="M660 578c-4-58 14-76 14-122s-20-58-20-102 22-64 22-108" stroke="currentColor" stroke-width="1"/>
+      <path d="M540 578c-4-58 16-70 16-118s-20-58-20-104 22-62 20-102" stroke="currentColor" stroke-width="1"/>
+      <path d="M470 560c-3-50 12-62 12-100s-16-48-16-88" stroke="currentColor" stroke-width=".8" opacity=".6"/>
+      <path d="M730 560c-3-50 12-62 12-100s-16-48-16-88" stroke="currentColor" stroke-width=".8" opacity=".6"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow" data-edit="hero.eyebrow">Приглашение</p>
+    <h1 class="display" data-edit="hero.title">Five o'clock</h1>
+    <p class="subtitle" data-edit="hero.subtitle">Чай, разговоры и день рождения</p>
+    <div class="rule"></div>
+    <div class="meta">
+      <div><p class="k" data-edit="hero.k1">Когда</p><p class="v display" data-edit="hero.v1">Суббота, 12 сентября</p></div>
+      <div><p class="k" data-edit="hero.k2">Во сколько</p><p class="v display" data-edit="hero.v2">17:00</p></div>
+      <div><p class="k" data-edit="hero.k3">Где</p><p class="v display" data-edit="hero.v3">У меня дома</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ПОВОД ================= -->
+<section id="povod">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="povod.eyebrow">Повод</p>
+      <h2 class="display" data-edit="povod.title">Просто хочу вас видеть</h2>
+    </div>
+    <p class="prose" data-edit="povod.text">У меня день рождения, и вместо шумного застолья хочется <em>тихого пятичасового чая</em>: хороший улун, свет из окна, неспешные разговоры. Приходите — все, кто дорог. Без официальности, без повода нервничать и без обязательных подарков.</p>
+  </div>
+</section>
+
+<!-- ================= ПРОГРАММА ================= -->
+<section id="program" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="prog.eyebrow">Как пройдёт вечер</p>
+      <h2 class="display" data-edit="prog.title">Программа</h2>
+      <p data-edit="prog.sub">Никакого расписания по минутам — скорее, естественный ход вещей.</p>
+    </div>
+    <div class="program">
+      <div class="item"><span class="t display" data-edit="p1.t">17:00</span><div><h3 data-edit="p1.h">Первая заварка</h3><p data-edit="p1.p">Встречаемся, знакомимся, ставим воду. Всё начинается со звука закипающего чайника.</p></div></div>
+      <div class="item"><span class="t display" data-edit="p2.t">17:30</span><div><h3 data-edit="p2.h">Чайная церемония</h3><p data-edit="p2.p">Проливаем несколько чаёв подряд — от белого к выдержанному. Можно молчать, можно спрашивать.</p></div></div>
+      <div class="item"><span class="t display" data-edit="p3.t">18:30</span><div><h3 data-edit="p3.h">Что-нибудь к чаю</h3><p data-edit="p3.p">Сконы, сыры, фрукты и сладкое. Английская часть five o'clock, без которой никак.</p></div></div>
+      <div class="item"><span class="t display" data-edit="p4.t">20:00</span><div><h3 data-edit="p4.h">Пластинки</h3><p data-edit="p4.p">Джаз, разговоры и вторая волна чая для тех, кто не торопится.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ДЕТАЛИ ================= -->
+<section id="details">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="det.eyebrow">Детали</p>
+      <h2 class="display" data-edit="det.title">Что стоит знать</h2>
+    </div>
+    <div class="cards">
+      <article class="detail"><h3 data-edit="d1.h">Дресс-код</h3><p data-edit="d1.p">Ничего строгого. Приходите в том, в чём вам хорошо сидеть за низким столом. Приветствуются спокойные тона и удобная обувь — дома разуваемся.</p></article>
+      <article class="detail"><h3 data-edit="d2.h">Подарки</h3><p data-edit="d2.p">Самый ценный подарок — ваше время. Но если очень хочется, я собрала вишлист ниже: там можно отметить желание, чтобы подарки не повторились.</p></article>
+      <article class="detail"><h3 data-edit="d3.h">Дать знать</h3><p data-edit="d3.p">Напишите мне пару слов, придёте ли — так я пойму, сколько заваривать. Приходить можно и с опозданием: чай будет весь вечер.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ГАЛЕРЕЯ ================= -->
+<section id="gallery" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="gal.eyebrow">Настроение</p>
+      <h2 class="display" data-edit="gal.title">Примерно так</h2>
+      <p data-edit="gal.sub">Свет, глина, пар над чашкой.</p>
+    </div>
+    <div class="gallery">
+      <figure data-photo="g1"><div class="placeholder"><svg><use href="#i-img"/></svg><span>Ваше фото</span></div></figure>
+      <figure data-photo="g2"><div class="placeholder"><svg><use href="#i-img"/></svg><span>Ваше фото</span></div></figure>
+      <figure data-photo="g3"><div class="placeholder"><svg><use href="#i-img"/></svg><span>Ваше фото</span></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= МЕСТО ================= -->
+<section id="place">
+  <div class="wrap">
+    <div class="place">
+      <div class="photo" data-photo="place"><div class="placeholder">Фото места</div></div>
+      <div>
+        <p class="eyebrow" data-edit="pl.eyebrow">Место и время</p>
+        <h2 class="display" data-edit="pl.title">Приходите на чай</h2>
+        <div class="row"><span>Дата</span><span data-edit="pl.date">Суббота, 12 сентября</span></div>
+        <div class="row"><span>Время</span><span data-edit="pl.time">17:00 — до последней заварки</span></div>
+        <div class="row"><span>Адрес</span><span data-edit="pl.addr">Москва, укажите адрес</span></div>
+        <div class="row"><span>Как найти</span><span data-edit="pl.how">Код домофона и этаж пришлю личным сообщением.</span></div>
+        <div class="cta">
+          <a class="btn" href="#" data-edit-href="pl.link" data-edit="pl.linktext">Открыть карту</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВИШЛИСТ ================= -->
+<section id="wishlist" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="wl.eyebrow">Раздел для тех, кто спрашивал</p>
+      <h2 class="display" data-edit="wl.title">Вишлист</h2>
+    </div>
+    <p class="wl-note" data-edit="wl.note">Совершенно необязательно. Но если хочется — отметьте желание кнопкой «Я дарю», и оно станет занятым для остальных. Так подарки не повторятся.</p>
+
+    <!-- Чайная церемония -->
+    <div class="wl-group">
+      <h3 data-edit="wl.g1.h">Чайная церемония</h3>
+      <p class="gnote" data-edit="wl.g1.p">Посуда и практика</p>
+      <div class="grid">
+        <article class="gift" data-id="chaban" data-title="Чабань «Tradition», 44×21 см">
+          <div class="ico"><svg><use href="#i-tray"/></svg></div>
+          <h4>Чабань «Tradition»</h4><p class="desc">Доска для чайной церемонии, 44 × 21 см.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/chaban-doska-dlya-chaynoy-tseremonii-tradition-44-sm-h-21-sm-2450740757/?at=WPtNKVx0gCB7zXmxcX4p0yXF8A4YyjtYA5V5Lsn0ARK0" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="pot-yixing" data-title="Чайник из исинской глины, 380 мл">
+          <div class="ico"><svg><use href="#i-pot"/></svg></div>
+          <h4>Чайник из исинской глины</h4><p class="desc">Заварочный, китайская глина, 380 мл.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/chaynik-zavarochnyy-iz-isinskoy-gliny-380-ml-kitayskiy-glinyanyy-chaynik-dlya-chaya-4250395399/?at=GRt2R6qwpfODkDAOSQV9mRWugOzGZ5f7z4mv4uKWVwlQ" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="pot-purple" data-title="Чайник из фиолетовой глины, 250 мл">
+          <div class="ico"><svg><use href="#i-pot"/></svg></div>
+          <h4>Чайник из фиолетовой глины</h4><p class="desc">Yiqin Tea House, ручная работа, 250 мл.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/yiqin-tea-house-chaynik-zavarochnyy-chaynik-iz-fioletovoy-gliny-svoimi-rukami-250-ml-1953439266/?at=A6tGX8Vj3cY0844Mc4B23ZQUMrq8RqsQwyWD4I0503Jo" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="mymandarin" data-title="Обучение чайной церемонии, MyMandarin">
+          <div class="ico"><svg><use href="#i-cup"/></svg></div>
+          <h4>Обучение чайной церемонии</h4><p class="desc">Занятие в чайной школе MyMandarin.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://mymandarin.ru/obuchenie-chajnoj-ceremonii/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Чай -->
+    <div class="wl-group">
+      <h3 data-edit="wl.g2.h">Чай</h3>
+      <p class="gnote" data-edit="wl.g2.p">GABA, улуны и красный</p>
+      <div class="grid">
+        <article class="gift" data-id="gaba-blackjack" data-title="GABA-чай «Блэк Джек», 100 г">
+          <div class="ico"><svg><use href="#i-leaf"/></svg></div>
+          <h4>GABA «Блэк Джек»</h4><p class="desc">Тайваньский GABA-чай, 100 г.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/tayvanskiy-gaba-chay-blek-dzhek-100-gramm-1451609756/?at=LZtlr7XLpiG6vwNAcx1B5zBcKQwxRrhVK8O8zFYORw8n" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="gaba-orang" data-title="GABA-улун «Орангутанг», 100 г">
+          <div class="ico"><svg><use href="#i-leaf"/></svg></div>
+          <h4>GABA-улун «Орангутанг»</h4><p class="desc">С мёдом диких пчёл, Юньнань, 100 г.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/gaba-ulun-medovyy-orangutang-gaba-chay-s-medom-dikih-pchel-yunnan-belaya-obezyana-100g-1725463899/?at=nRtr2kxnqh58WZ61tnj86WmcYPAZVMCN1jpmpS8r14GG" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="hongzhen" data-title="Красный чай «Красные иглы» Хун Чжэн, 200 г">
+          <div class="ico"><svg><use href="#i-brick"/></svg></div>
+          <h4>«Красные иглы» Хун Чжэн</h4><p class="desc">Прессованный красный чай, серия «Великие писатели», 200 г.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/krasnyy-kitayskiy-chay-pressovannyy-hun-chzhen-krasnye-igly-a-p-chehov-seriya-velikie-pisateli-200-g-886242870/?at=A6tGX8Vj3cJv4Q3xHpZM6zvc4R0Q1cBZMx4VHnWN5D4" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Книги -->
+    <div class="wl-group">
+      <h3 data-edit="wl.g3.h">Книги</h3>
+      <p class="gnote" data-edit="wl.g3.p">Философия и архитектура</p>
+      <div class="grid">
+        <article class="gift" data-id="book-teslya" data-title="«Русская философия в 7 сюжетах», А. Тесля">
+          <div class="ico"><svg><use href="#i-book"/></svg></div>
+          <h4>Русская философия в 7 сюжетах</h4><p class="desc">«Немота наших лиц», Андрей Тесля.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/russkaya-filosofiya-v-7-syuzhetah-nemota-nashih-lits-teslya-andrey-aleksandrovich-2939614712/?at=pZtpW7y5Ns1r6N2PIl5jpErFOkOvK9sXj8wBBHPppKVp" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="book-oleynik" data-title="«Язык архитектуры», Е. Олейник">
+          <div class="ico"><svg><use href="#i-book"/></svg></div>
+          <h4>Язык архитектуры</h4><p class="desc">От ордера до хай-тека, Елена Олейник.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/yazyk-arhitektury-ot-ordera-do-hay-teka-oleynik-elena-vadimovna-1899925495/?at=jYtZXVAgMIM5Z7DnIDyznENixN6JBEfY65prQtErQOmn" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Сертификаты -->
+    <div class="wl-group">
+      <h3 data-edit="wl.g4.h">Сертификаты и впечатления</h3>
+      <p class="gnote" data-edit="wl.g4.p">Парфюмерия, керамика, украшения</p>
+      <div class="grid">
+        <article class="gift" data-id="goldapple" data-title="Сертификат «Золотое Яблоко»">
+          <div class="ico"><svg><use href="#i-bottle"/></svg></div>
+          <h4>«Золотое Яблоко»</h4><p class="desc">Красота и парфюмерия — на любую сумму.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://goldapple.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="randewoo" data-title="Сертификат Randewoo">
+          <div class="ico"><svg><use href="#i-bottle"/></svg></div>
+          <h4>Randewoo</h4><p class="desc">Нишевая парфюмерия, подарочный сертификат.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://randewoo.ru/gift_certificates" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="nose" data-title="Сертификат Nose Perfumes">
+          <div class="ico"><svg><use href="#i-bottle"/></svg></div>
+          <h4>Nose Perfumes</h4><p class="desc">Нишевая парфюмерия, сертификат.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://noseperfumes.ru/certificate" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="masterkarl" data-title="Сертификат «Мастерская Карла»">
+          <div class="ico"><svg><use href="#i-ring"/></svg></div>
+          <h4>Мастерская Карла</h4><p class="desc">Ювелирный мастер-класс — украшение своими руками.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://masterkarl.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="kolo" data-title="Сертификат Kolo Studio">
+          <div class="ico"><svg><use href="#i-vase"/></svg></div>
+          <h4>Kolo Studio</h4><p class="desc">Гончарная мастерская, керамика за кругом.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://kolo.studio/sertifikat" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="mzstudio" data-title="Сертификат MZ Studio">
+          <div class="ico"><svg><use href="#i-print"/></svg></div>
+          <h4>MZ Studio</h4><p class="desc">Студия печатной графики Марии Зайцевой.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://mzstudio.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="askona" data-title="Сертификат Askona">
+          <div class="ico"><svg><use href="#i-moon"/></svg></div>
+          <h4>Askona</h4><p class="desc">Сон и дом — сертификат в Аскону.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.askona.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+        <article class="gift" data-id="applewatch" data-title="Apple Watch — вскладчину">
+          <div class="ico"><svg><use href="#i-watch"/></svg></div>
+          <h4>Apple Watch</h4><p class="desc">Большое желание, к которому можно присоединиться вместе. Напишите мне — расскажу подробности.</p>
+          <div class="seal"><span>ЗАНЯТО</span></div>
+          <div class="foot"><a class="view" href="https://www.apple.com/ru/watch/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я участвую</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ФИНАЛ ================= -->
+<section class="finale">
+  <div class="wrap narrow">
+    <div class="rule" style="margin-bottom:30px"></div>
+    <p class="big display" data-edit="fin.big">Вода уже закипает. Приходите.</p>
+    <p class="sig" data-edit="fin.sig">— Надя</p>
+  </div>
+</section>
+
+<footer><p data-edit="foot">Five o'clock · приглашение</p></footer>
+
+<!-- ================= MODAL ================= -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h4 class="display">Отметить желание</h4>
+    <p class="sub" id="m-item"></p>
+    <label for="m-name">Ваше имя (по желанию)</label>
+    <input id="m-name" type="text" placeholder="Например, Аня" maxlength="60" autocomplete="off">
+    <div class="actions">
+      <button class="btn ghost" id="m-cancel">Отмена</button>
+      <button class="btn" id="m-ok">Я дарю</button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<button id="editor-open" title="Редактировать сайт">Редактировать</button>
+
+<script type="module" src="wishlist.js"></script>
+<script src="editor.js" defer></script>
+</body>
+</html>

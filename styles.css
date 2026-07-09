@@ -427,3 +427,43 @@ body.editing .portrait:hover{filter:brightness(.94)}
 .wl-group.hint .gift:hover{transform:none;box-shadow:none}
 .wl-group.hint .gift .desc{margin-bottom:0}
 .wl-group.hint .gift.taken{opacity:1;background:var(--surface)}
+
+/* ============================================================
+   ФОТО-РЕФЕРЕНСЫ: единый кобальтовый дуотон
+   Разнородные картинки из интернета сводим к одной гамме.
+   При наведении цвет возвращается.
+   ============================================================ */
+.wl-group.hint .gphoto img{
+  filter:grayscale(1) sepia(.42) hue-rotate(168deg) saturate(2.1) contrast(.92) brightness(1.06);
+  transition:filter .5s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.wl-group.hint .gift:hover .gphoto img{
+  filter:grayscale(.15) sepia(.06) saturate(1.05) contrast(1);
+  transform:scale(1.03);
+}
+[data-theme="ink"] .wl-group.hint .gphoto img{
+  filter:grayscale(1) sepia(.3) hue-rotate(2deg) saturate(1.5) brightness(.92);
+}
+[data-theme="paper"] .wl-group.hint .gphoto img,
+[data-theme="oolong"] .wl-group.hint .gphoto img{
+  filter:grayscale(1) sepia(.55) saturate(1.35) contrast(.95);
+}
+[data-theme="celadon"] .wl-group.hint .gphoto img{
+  filter:grayscale(1) sepia(.4) hue-rotate(58deg) saturate(1.5) contrast(.95);
+}
+@media(prefers-reduced-motion:reduce){
+  .wl-group.hint .gift:hover .gphoto img{transform:none}
+}
+
+/* карточка-подсказка: фото во всю ширину, текст под ним */
+.wl-group.hint .gift{padding:0;overflow:hidden}
+.wl-group.hint .gift .gphoto{margin:0;border-radius:0;aspect-ratio:5/4}
+.wl-group.hint .gift h4{margin:18px 22px 6px;padding-right:52px}
+.wl-group.hint .gift .desc{margin:0 22px 22px}
+.wl-group.hint .gift .ico{top:auto;margin-top:18px;right:20px}
+.wl-group.hint .gift:not(:has(.gphoto img)) h4{margin-top:22px}
+body.editing .wl-group.hint .gift{padding-top:44px}
+body.editing .wl-group.hint .gift .gphoto{margin:0 22px}
+
+/* четыре детали в ряд на широком экране */
+.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}

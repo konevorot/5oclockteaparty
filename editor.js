@@ -85,6 +85,21 @@
   function esc(x){ return String(x||"").replace(/[&<>"]/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
+  /* Браузер при вставке текста плодит <div>, <span style> и вложенные <p>.
+     Внутри <p> блочные теги недопустимы — вёрстка ломается и текст двоится.
+     Приводим всё к простому тексту с переносами <br>. */
+  function sanitize(el){
+    var html=el.innerHTML;
+    html=html.replace(/<br\s*\/?>/gi,"\n");
+    html=html.replace(/<\/(div|p|li)>/gi,"\n");
+    html=html.replace(/<[^>]+>/g,"");
+    html=html.replace(/&nbsp;/g," ");
+    var txt=document.createElement("textarea");
+    txt.innerHTML=html;
+    var plain=txt.value.replace(/\n{3,}/g,"\n\n").replace(/[ \t]+\n/g,"\n").trim();
+    return esc(plain).replace(/\n/g,"<br>");
+  }
+
   function ensureHintPhotos(){
     document.querySelectorAll(".wl-group.hint .gift").forEach(function(card){
       if(card.querySelector(".gphoto")) return;
@@ -213,11 +228,19 @@
     applyTheme(localStorage.getItem(LS_THEME)||"willow");
 
     document.querySelectorAll("[data-edit]").forEach(function(el){
-      el.addEventListener("blur",function(){ texts[el.dataset.edit]=el.innerHTML.trim(); save(LS_TEXT,texts); });
+      el.addEventListener("blur",function(){
+        var clean=sanitize(el);
+        if(el.innerHTML!==clean) el.innerHTML=clean;
+        texts[el.dataset.edit]=clean;
+        save(LS_TEXT,texts);
+      });
       el.addEventListener("paste",function(e){
         e.preventDefault();
         var t=(e.clipboardData||window.clipboardData).getData("text");
         document.execCommand("insertText",false,t);
+      });
+      el.addEventListener("keydown",function(e){
+        if(e.key==="Enter"){ e.preventDefault(); document.execCommand("insertLineBreak"); }
       });
     });
 
@@ -357,7 +380,11 @@
     if(g){
       g.querySelectorAll("[data-edit]").forEach(function(el){
         el.contentEditable="true"; el.spellcheck=false;
-        el.addEventListener("blur",function(){ texts[el.dataset.edit]=el.innerHTML.trim(); save(LS_TEXT,texts); });
+        el.addEventListener("blur",function(){
+          var clean=sanitize(el);
+          if(el.innerHTML!==clean) el.innerHTML=clean;
+          texts[el.dataset.edit]=clean; save(LS_TEXT,texts);
+        });
       });
       decorateGroup(g);
       g.scrollIntoView({behavior:"smooth",block:"center"});

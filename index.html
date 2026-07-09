@@ -114,6 +114,18 @@
       <div><p class="k" data-edit="hero.k2">Во сколько</p><p class="v display" data-edit="hero.v2">16:00</p></div>
       <div><p class="k" data-edit="hero.k3">Где</p><p class="v display" data-edit="hero.v3">Погодинская 20к5, м. Спортивная</p></div>
     </div>
+    <div id="event" hidden
+      data-title="Five o'clock tea"
+      data-date="2026-07-19"
+      data-start="16:00"
+      data-end="20:00"
+      data-loc="Москва, Погодинская 20к5"
+      data-desc="Чай, рассказ о Британии и день рождения"></div>
+    <div class="cal-row">
+      <button type="button" class="btn" data-cal="ics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><span data-edit="cal.ics">В календарь</span></button>
+      <button type="button" class="btn ghost" data-cal="google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg><span data-edit="cal.g">Google Календарь</span></button>
+    </div>
+  
   </div>
 </header>
 
@@ -166,9 +178,11 @@
       <h2 class="display" data-edit="det.title">Что стоит знать</h2>
     </div>
     <div class="cards">
-      <article class="detail"><h3 data-edit="d1.h">Про место</h3><p data-edit="d1.p">Мы собираемся в квартире у моей подруги Оли. Места не так много для большой компании, поэтому приглашаю точечно и собираю подтверждения. Будем размещаться компактно.&nbsp;<div><br></div><div>К сожалению, +1 и детей взять с собой не получится, но я с удовольствием повстречаюсь и отдельно.</div></p><div>К сожалению, +1 и детей взять с собой не получится, но я с удовольствием повстречаюсь и отдельно.</div><p></p></article>
+      <article class="detail"><h3 data-edit="d1.h">Про место</h3><p data-edit="d1.p">Мы собираемся в квартире у моей подруги Оли. Места не так много для большой компании, поэтому приглашаю точечно и собираю подтверждения. Будем размещаться компактно.</p></article>
       <article class="detail"><h3 data-edit="d2.h">Подарки</h3><p data-edit="d2.p">Самый ценный подарок — ваше время. Но если очень хочется, я собрала вишлист ниже: там можно отметить желание, чтобы подарки не повторились.</p></article>
       <article class="detail"><h3 data-edit="d3.h">Дать знать</h3><p data-edit="d3.p">Напишите мне пару слов, придёте ли — так я пойму, как готовиться. Приходить можно и с опозданием: чай будет весь вечер, но в 17 начнем часть с рассказом.&nbsp;</p></article>
+      <article class="detail"><h3 data-edit="d4.h">Про +1 и детей</h3><p data-edit="d4.p">К сожалению, взять с собой спутника или детей не получится — квартира небольшая, и я хочу, чтобы всем хватило места за столом. С вашими близкими с удовольствием повстречаюсь отдельно.</p></article>
+      <article class="detail"><h3 data-edit="d5.h">Если я не могу прийти</h3><p data-edit="d5.p">Возможно, к части с рассказом удастся сделать подключение онлайн. Напиши мне, если сможешь подключиться — соберём желающих.</p></article>
     </div>
   </div>
 </section>
@@ -211,6 +225,7 @@
         <div class="row"><span>Как найти</span><span data-edit="pl.how">Номер квартиры и этаж пришлю личным сообщением накануне</span></div>
         <div class="cta">
           <a class="btn" href="https://yandex.com/maps/-/CHajYEMO" data-edit-href="pl.link" data-edit="pl.linktext">Открыть карту</a>
+          <button type="button" class="btn ghost" data-cal="ics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>В календарь</button>
           <a class="btn ghost tg" href="https://t.me/nadikolodko" target="_blank" rel="noopener" data-edit-href="tg.link"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.7 3.4 2.9 10.6c-1 .4-1 1.8 0 2.2l4.6 1.5 1.8 5.5c.3.8 1.3 1 1.9.4l2.5-2.4 4.6 3.4c.7.5 1.7.1 1.9-.8l3.2-15c.2-1-.8-1.8-1.7-1.4zM8.9 14.1l9.3-6-7.6 7.1-.3 3.3-1.4-4.4z"></path></svg><span data-edit="tg.text">Написать мне в телеграме</span></a>
         </div>
       </div>
@@ -221,6 +236,32 @@
 <div class="fret willow-only" aria-hidden="true">
   <svg preserveAspectRatio="none" viewBox="0 0 400 16"><rect width="400" height="16" fill="url(#fretpat)"></rect></svg>
 </div>
+<!-- ================= ХОЗЯЕВА КВАРТИРЫ ================= -->
+<section id="hosts" class="hosts">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <p class="eyebrow" data-edit="hosts.eyebrow">Благодарности</p>
+      <h2 class="display" data-edit="hosts.title">Хозяева квартиры</h2>
+    </div>
+    <div class="host-row">
+      <figure class="host">
+        <div class="host-photo" data-photo="host-olga"><div class="placeholder"><svg><use href="#i-img"></use></svg></div></div>
+        <figcaption>
+          <p class="host-name" data-edit="host1.name">Ольга Болкунова</p>
+          <p class="host-role" data-edit="host1.role">Моя подруга, CEO и китаист</p>
+        </figcaption>
+      </figure>
+      <figure class="host">
+        <div class="host-photo" data-photo="host-boris"><div class="placeholder"><svg><use href="#i-img"></use></svg></div></div>
+        <figcaption>
+          <p class="host-name" data-edit="host2.name">Кот Борис</p>
+          <p class="host-role" data-edit="host2.role">Живёт свою лучшую жизнь</p>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="thanks-text" data-edit="thanks.text">Отдельное спасибо <b>Оле</b> — за место для встречи. Её квартира давно служит мне убежищем: обычно я прихожу сюда присматривать за Борисом, а Борис присматривает за мной. После долгого британского отпуска финансовое положение ещё требует поправки, так что гостиная <i>for free</i> — лучший подарок из всех, что не влезли в вишлист.</p>
+  </div>
+</section>
 
 <!-- ================= ВИШЛИСТ ================= -->
 <section id="wishlist" class="alt">
@@ -252,21 +293,21 @@
           <div class="ico"><svg><use href="#i-leaf"></use></svg></div>
           <h4>GABA «Блэк Джек»</h4><p class="desc">Тайваньский GABA-чай, 100 г.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.ozon.ru/product/tayvanskiy-gaba-chay-blek-dzhek-100-gramm-1451609756/?at=LZtlr7XLpiG6vwNAcx1B5zBcKQwxRrhVK8O8zFYORw8n" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/tayvanskiy-gaba-chay-blek-dzhek-100-gramm-1451609756/?at=LZtlr7XLpiG6vwNAcx1B5zBcKQwxRrhVK8O8zFYORw8n" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         <article class="gift" data-id="gaba-orang" data-title="GABA-улун «Орангутанг», 100 г">
           <div class="ico"><svg><use href="#i-leaf"></use></svg></div>
           <h4>GABA-улун «Орангутанг»</h4><p class="desc">С мёдом диких пчёл, Юньнань, 100 г.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.ozon.ru/product/gaba-ulun-medovyy-orangutang-gaba-chay-s-medom-dikih-pchel-yunnan-belaya-obezyana-100g-1725463899/?at=nRtr2kxnqh58WZ61tnj86WmcYPAZVMCN1jpmpS8r14GG" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/gaba-ulun-medovyy-orangutang-gaba-chay-s-medom-dikih-pchel-yunnan-belaya-obezyana-100g-1725463899/?at=nRtr2kxnqh58WZ61tnj86WmcYPAZVMCN1jpmpS8r14GG" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         <article class="gift" data-id="hongzhen" data-title="Красный чай «Красные иглы» Хун Чжэн, 200 г">
           <div class="ico"><svg><use href="#i-brick"></use></svg></div>
           <h4>«Красные иглы» Хун Чжэн</h4><p class="desc">Прессованный красный чай, серия «Великие писатели», 200 г.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.ozon.ru/product/krasnyy-kitayskiy-chay-pressovannyy-hun-chzhen-krasnye-igly-a-p-chehov-seriya-velikie-pisateli-200-g-886242870/?at=A6tGX8Vj3cJv4Q3xHpZM6zvc4R0Q1cBZMx4VHnWN5D4" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/krasnyy-kitayskiy-chay-pressovannyy-hun-chzhen-krasnye-igly-a-p-chehov-seriya-velikie-pisateli-200-g-886242870/?at=A6tGX8Vj3cJv4Q3xHpZM6zvc4R0Q1cBZMx4VHnWN5D4" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
-      <article class="gift" data-id="wmre05hvms1g" data-title="Красный чай"><div class="ico"><svg><use href="#i-leaf"></use></svg></div><h4>Красный чай</h4><p class="desc">Чай Дянь Хунь, вкусный и согревающий</p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><a class="view" href="https://www.ozon.ru/product/krasnyy-kitayskiy-chay-dyan-hun-list-nastoyashchiy-35-gramm-5-shtuk-3446699171/?at=GRt2RQ9MKuL83wEBuO93pq2SKq9GvKt7RqxJoHGKOQX4&amp;is_apparel_size_selected=true" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div></article><article class="gift" data-id="wmre097wro50" data-title="Чайник из исинской глины, 380 мл"><div class="ico"><svg><use href="#i-pot"></use></svg></div><h4>Чайник из исинской глины, 380 мл</h4><p class="desc"></p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div></article></div>
+      <article class="gift" data-id="wmre05hvms1g" data-title="Красный чай"><div class="ico"><svg><use href="#i-leaf"></use></svg></div><h4>Красный чай</h4><p class="desc">Чай Дянь Хунь, вкусный и согревающий</p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><a class="view" href="https://www.ozon.ru/product/krasnyy-kitayskiy-chay-dyan-hun-list-nastoyashchiy-35-gramm-5-shtuk-3446699171/?at=GRt2RQ9MKuL83wEBuO93pq2SKq9GvKt7RqxJoHGKOQX4&amp;is_apparel_size_selected=true" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div></article><article class="gift" data-id="wmre097wro50" data-title="Чайник из исинской глины, 380 мл"><div class="ico"><svg><use href="#i-pot"></use></svg></div><h4>Чайник из исинской глины, 380 мл</h4><p class="desc"></p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div></article></div>
     </div>
 
     <!-- Книги -->
@@ -278,13 +319,13 @@
           <div class="ico"><svg><use href="#i-book"></use></svg></div>
           <h4>Русская философия в 7 сюжетах</h4><p class="desc">«Немота наших лиц», Андрей Тесля.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.ozon.ru/product/russkaya-filosofiya-v-7-syuzhetah-nemota-nashih-lits-teslya-andrey-aleksandrovich-2939614712/?at=pZtpW7y5Ns1r6N2PIl5jpErFOkOvK9sXj8wBBHPppKVp" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/russkaya-filosofiya-v-7-syuzhetah-nemota-nashih-lits-teslya-andrey-aleksandrovich-2939614712/?at=pZtpW7y5Ns1r6N2PIl5jpErFOkOvK9sXj8wBBHPppKVp" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         <article class="gift" data-id="book-oleynik" data-title="«Язык архитектуры», Е. Олейник">
           <div class="ico"><svg><use href="#i-book"></use></svg></div>
           <h4>Язык архитектуры</h4><p class="desc">От ордера до хай-тека, Елена Олейник.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.ozon.ru/product/yazyk-arhitektury-ot-ordera-do-hay-teka-oleynik-elena-vadimovna-1899925495/?at=jYtZXVAgMIM5Z7DnIDyznENixN6JBEfY65prQtErQOmn" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.ozon.ru/product/yazyk-arhitektury-ot-ordera-do-hay-teka-oleynik-elena-vadimovna-1899925495/?at=jYtZXVAgMIM5Z7DnIDyznENixN6JBEfY65prQtErQOmn" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
       </div>
     </div>
@@ -298,20 +339,20 @@
           <div class="ico"><svg><use href="#i-bottle"></use></svg></div>
           <h4>«Золотое Яблоко»</h4><p class="desc">Красота и парфюмерия — на любую сумму.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://goldapple.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://goldapple.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         <article class="gift" data-id="randewoo" data-title="Сертификат Randewoo">
           <div class="ico"><svg><use href="#i-bottle"></use></svg></div>
           <h4>Randewoo</h4><p class="desc">Нишевая парфюмерия, подарочный сертификат.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://randewoo.ru/gift_certificates" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://randewoo.ru/gift_certificates" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         
         <article class="gift" data-id="masterkarl" data-title="Сертификат «Мастерская Карла»">
           <div class="ico"><svg><use href="#i-ring"></use></svg></div>
           <h4>Мастерская Карла</h4><p class="desc">Ювелирный мастер-класс — украшение своими руками.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://masterkarl.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://masterkarl.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         
         
@@ -319,10 +360,10 @@
           <div class="ico"><svg><use href="#i-moon"></use></svg></div>
           <h4>Askona</h4><p class="desc">Сон и дом — сертификат в Аскону.</p>
           <div class="seal"><span>ЗАНЯТО</span></div>
-          <div class="foot"><a class="view" href="https://www.askona.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div>
+          <div class="foot"><a class="view" href="https://www.askona.ru/" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div>
         </article>
         
-      <article class="gift" data-id="wmre0g65dcmi" data-title="Сертификат в Яндекс Афишу"><div class="ico"><svg><use href="#i-book"></use></svg></div><h4>Сертификат в Яндекс Афишу</h4><p class="desc">На новые театральные впечатления</p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><a class="view" href="https://afisha.yandex.ru/certificates?city=moscow" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div></article><article class="gift" data-id="wmre0gv4sosp" data-title="Тут может быть любой сертификат на ваш вкус"><div class="ico"><svg><use href="#i-book"></use></svg></div><h4>Тут может быть любой сертификат на ваш вкус</h4><p class="desc"></p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel">передумал(а)</button></div></article></div>
+      <article class="gift" data-id="wmre0g65dcmi" data-title="Сертификат в Яндекс Афишу"><div class="ico"><svg><use href="#i-book"></use></svg></div><h4>Сертификат в Яндекс Афишу</h4><p class="desc">На новые театральные впечатления</p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><a class="view" href="https://afisha.yandex.ru/certificates?city=moscow" target="_blank" rel="noopener">Посмотреть</a><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div></article><article class="gift" data-id="wmre0gv4sosp" data-title="Тут может быть любой сертификат на ваш вкус"><div class="ico"><svg><use href="#i-book"></use></svg></div><h4>Тут может быть любой сертификат на ваш вкус</h4><p class="desc"></p><div class="seal"><span>ЗАНЯТО</span></div><div class="foot"><button class="btn book">Я дарю</button><p class="who"></p><button class="cancel" title="Нужен пароль">снять отметку</button></div></article></div>
     </div>
   </div>
 </section>
@@ -337,7 +378,9 @@
   </div>
 </section>
 
-<footer><p data-edit="foot">Five o'clock · приглашение</p></footer>
+
+<footer>
+  <p data-edit="foot">Five o'clock · приглашение</p></footer>
 
 <!-- ================= MODAL ================= -->
 <div class="overlay" id="overlay">
@@ -358,6 +401,7 @@
 
 <script type="module" src="wishlist.js"></script>
 <script src="carousel.js" defer=""></script>
+<script src="calendar.js" defer></script>
 <script src="editor.js" defer=""></script>
 
 

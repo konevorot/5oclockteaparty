@@ -289,3 +289,89 @@ body.editing [data-photo]:hover{filter:brightness(.94)}
 
 /* точка Willow в переключателе стилей */
 .theme-dots button[data-t="willow"]{background:linear-gradient(135deg,#f7f6f1 45%,#3a5f8a 45%)}
+
+/* ============================================================
+   КАРУСЕЛЬ ФОТО МЕСТА
+   ============================================================ */
+.carousel{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:var(--bg-alt)}
+.carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.carousel .slide.active{opacity:1;pointer-events:auto}
+.carousel .slide img{width:100%;height:100%;object-fit:cover}
+.carousel .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;color:var(--soft);font-size:.82rem;border:1px dashed var(--line);text-align:center;padding:16px}
+.carousel .placeholder svg{width:30px;height:30px;opacity:.6}
+[data-theme="willow"] .carousel{border:1px solid var(--line)}
+[data-theme="willow"] .carousel::after{content:"";position:absolute;inset:7px;border:1px solid rgba(255,255,255,.55);
+  pointer-events:none;z-index:4}
+
+.cnav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:38px;height:38px;border-radius:50%;
+  border:none;background:rgba(255,255,255,.82);color:var(--ink);cursor:pointer;display:flex;align-items:center;
+  justify-content:center;font-size:1rem;opacity:0;transition:opacity .25s,background .2s}
+.carousel:hover .cnav,.carousel:focus-within .cnav{opacity:1}
+.cnav:hover{background:#fff}
+.cnav:focus-visible{opacity:1;outline:2px solid var(--accent);outline-offset:2px}
+.cnav.prev{left:14px}
+.cnav.next{right:14px}
+.cnav svg{width:16px;height:16px}
+@media(hover:none){.cnav{opacity:.9}}
+
+.dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;display:flex;gap:8px}
+.dots button{width:7px;height:7px;padding:0;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,255,255,.55);transition:background .2s,transform .2s}
+.dots button[aria-current="true"]{background:#fff;transform:scale(1.35)}
+.dots button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.carousel[data-single] .cnav,.carousel[data-single] .dots{display:none}
+
+body.editing .carousel .slide{opacity:1;position:relative;aspect-ratio:4/3}
+body.editing .carousel{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+body.editing .carousel .cnav,body.editing .carousel .dots{display:none}
+body.editing .carousel::after{display:none}
+
+/* ---------- Telegram ---------- */
+.btn.tg{display:inline-flex;align-items:center;gap:8px}
+.btn.tg svg{width:16px;height:16px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.finale .cta{justify-content:center;margin-top:26px}
+
+/* ============================================================
+   РЕДАКТОР ВИШЛИСТА (виден только в режиме правки)
+   ============================================================ */
+.ed-ctl,.wl-add,.wl-add-group{display:none}
+body.editing .ed-ctl{display:flex}
+body.editing .wl-add,body.editing .wl-add-group{display:inline-flex}
+
+body.editing .gift{padding-top:44px}
+.gift .ed-ctl{position:absolute;top:10px;left:10px;right:10px;gap:6px;z-index:6;justify-content:flex-end}
+.ed-ctl button{font-family:inherit;font-size:.72rem;font-weight:600;cursor:pointer;border-radius:999px;
+  padding:5px 11px;border:1px solid var(--line);background:var(--bg);color:var(--soft);transition:.15s}
+.ed-ctl button:hover{border-color:var(--accent);color:var(--accent)}
+.ed-ctl button.del:hover{border-color:var(--seal);color:var(--seal)}
+.ed-ctl .grab{cursor:grab;margin-right:auto}
+
+.wl-add{align-items:center;gap:8px;margin-top:14px;font-family:inherit;font-size:.84rem;font-weight:600;
+  cursor:pointer;border-radius:999px;padding:10px 20px;border:1px dashed var(--accent);
+  background:none;color:var(--accent);transition:.15s}
+.wl-add:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.wl-add-group{margin:8px auto 0;display:none}
+body.editing .wl-add-group{display:inline-flex;align-items:center;gap:8px}
+.wl-addgroup-wrap{text-align:center}
+
+body.editing .wl-group{outline:1px dashed color-mix(in srgb,var(--accent) 30%,transparent);
+  outline-offset:14px;border-radius:6px}
+
+/* форма карточки */
+.wl-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  max-width:460px;width:100%;padding:28px 26px;max-height:86vh;overflow-y:auto}
+.wl-form h4{font-family:var(--display);font-weight:var(--display-weight);font-size:1.35rem;margin:0 0 18px}
+.wl-form label{font-size:.76rem;font-weight:600;color:var(--accent);display:block;margin:14px 0 6px}
+.wl-form input,.wl-form textarea,.wl-form select{width:100%;padding:11px 13px;border:1px solid var(--line);
+  border-radius:calc(var(--radius) - 2px);font-family:inherit;font-size:.93rem;background:var(--bg);color:var(--ink)}
+.wl-form textarea{resize:vertical;min-height:66px}
+.wl-form .icons{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:6px}
+.wl-form .icons button{aspect-ratio:1;border:1px solid var(--line);border-radius:calc(var(--radius) - 2px);
+  background:var(--bg);color:var(--soft);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:8px}
+.wl-form .icons button svg{width:100%;height:100%}
+.wl-form .icons button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.wl-form .actions{display:flex;gap:10px;margin-top:24px}
+.wl-form .actions .btn{flex:1;text-align:center}

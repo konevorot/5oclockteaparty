@@ -2,6 +2,9 @@
    ВИШЛИСТ — кто какой подарок берёт.
    Если в config.js указан Supabase, отметки видны всем гостям.
    Если нет — работает в демо-режиме (только в вашем браузере).
+
+   Обработчики повешены на документ (делегирование), поэтому
+   карточки, добавленные через редактор, работают сразу.
    ============================================================ */
 const cfg = window.WISHLIST_CONFIG || {};
 const configured = cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY &&
@@ -20,7 +23,6 @@ const localSet = v => localStorage.setItem(LOCAL, JSON.stringify(v));
 const toast = document.getElementById("toast");
 function say(m){ toast.textContent=m; toast.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(()=>toast.classList.remove("show"),2400); }
 
-/* ---------- модальное окно ---------- */
 const overlay=document.getElementById("overlay");
 const mItem=document.getElementById("m-item");
 const mName=document.getElementById("m-name");
@@ -36,17 +38,19 @@ function open(card){
 function close(){ overlay.classList.remove("open"); target=null; }
 document.getElementById("m-cancel").addEventListener("click",close);
 overlay.addEventListener("click",e=>{ if(e.target===overlay) close(); });
-document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && overlay.classList.contains("open")) close(); });
 mName.addEventListener("keydown",e=>{ if(e.key==="Enter") take(); });
 document.getElementById("m-ok").addEventListener("click",take);
 
-/* ---------- отрисовка ---------- */
+let lastMap = {};
 function render(map){
+  lastMap = map;
   document.querySelectorAll(".gift").forEach(card=>{
     const id=card.dataset.id;
     if(id in map){
       card.classList.add("taken");
-      card.querySelector(".who").textContent = map[id] ? ("Дарит: "+map[id]) : "Кто-то уже дарит";
+      const who=card.querySelector(".who");
+      if(who) who.textContent = map[id] ? ("Дарит: "+map[id]) : "Кто-то уже дарит";
     } else {
       card.classList.remove("taken");
     }
@@ -61,7 +65,6 @@ async function loadAll(){
   render(map);
 }
 
-/* ---------- действия ---------- */
 async function take(){
   if(!target) return;
   const id=target.dataset.id, name=mName.value.trim();
@@ -71,28 +74,30 @@ async function take(){
   }
   const { error } = await sb.from("gift_reservations").insert({ gift_id:id, name:name||null });
   close();
-  if(error){ say(error.code==="23505" ? "Кто-то уже успел" : "Не получилось, попробуйте ещё раз"); }
-  else { say("Спасибо ✓"); }
+  say(error ? (error.code==="23505" ? "Кто-то уже успел" : "Не получилось, попробуйте ещё раз") : "Спасибо ✓");
   loadAll();
 }
 
-document.querySelectorAll(".gift .book").forEach(b=>{
-  b.addEventListener("click",()=>{
-    if(document.body.classList.contains("editing")) return;
-    open(b.closest(".gift"));
-  });
-});
+/* ---------- делегирование: работает и для новых карточек ---------- */
+document.addEventListener("click", async (e)=>{
+  if(document.body.classList.contains("editing")) return;
 
-document.querySelectorAll(".gift .cancel").forEach(c=>{
-  c.addEventListener("click",async()=>{
-    const card=c.closest(".gift");
+  const book = e.target.closest(".gift .book");
+  if(book){ open(book.closest(".gift")); return; }
+
+  const cancel = e.target.closest(".gift .cancel");
+  if(cancel){
+    const card=cancel.closest(".gift");
     if(!confirm("Снять отметку с «"+card.dataset.title+"»?")) return;
     if(!sb){ const m=localGet(); delete m[card.dataset.id]; localSet(m); render(m); say("Снято"); return; }
     const { error }=await sb.from("gift_reservations").delete().eq("gift_id",card.dataset.id);
     say(error ? "Не получилось" : "Снято");
     loadAll();
-  });
+  }
 });
+
+/* редактор зовёт это после добавления карточек */
+window.focRefreshGifts = () => render(lastMap);
 
 loadAll();
 if(sb) setInterval(loadAll, 20000);

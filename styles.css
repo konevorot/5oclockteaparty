@@ -522,3 +522,56 @@ body.editing .wl-group.hint .gift .gphoto{margin:0 22px}
 
 /* пять деталей: три колонки, второй ряд из двух — спокойнее, чем 4 + 1 */
 .cards{grid-template-columns:repeat(auto-fit,minmax(272px,1fr))}
+
+/* ============================================================
+   БЛАГОДАРНОСТЬ В ПОДВАЛЕ
+   ============================================================ */
+footer{padding-top:52px}
+.thanks{display:flex;align-items:center;justify-content:center;gap:18px;
+  max-width:640px;margin:0 auto 26px;text-align:left}
+.thanks-photo{width:66px;height:66px;flex:0 0 auto;border-radius:50%;overflow:hidden;
+  background:var(--bg-alt);position:relative;border:1px solid var(--line)}
+.thanks-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.thanks-photo .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  border:1px dashed var(--line);border-radius:50%;color:var(--soft)}
+.thanks-photo .placeholder svg{width:20px;height:20px;opacity:.55}
+[data-theme="willow"] .thanks-photo{border-color:var(--accent)}
+[data-theme="willow"] .thanks-photo::after{content:"";position:absolute;inset:4px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.5);pointer-events:none;z-index:2}
+.thanks-text{margin:0;font-size:.86rem;line-height:1.6;color:var(--soft);max-width:52ch}
+.thanks-text b{font-weight:600;color:var(--ink)}
+.thanks-text i{font-family:var(--display);font-style:italic;color:var(--ink)}
+.thanks-rule{width:36px;height:1px;background:var(--line);margin:0 auto 24px}
+body.editing .thanks-photo{cursor:pointer}
+body.editing .thanks-photo:hover{filter:brightness(.94)}
+@media(max-width:560px){
+  .thanks{flex-direction:column;text-align:center;gap:14px}
+  .thanks-text{max-width:40ch}
+}
+
+/* ============================================================
+   ХОЗЯЕВА КВАРТИРЫ
+   ============================================================ */
+.hosts{padding:clamp(50px,7vw,86px) 0 clamp(30px,4vw,46px)}
+.hosts .sec-head{margin-bottom:clamp(24px,3.4vw,38px)}
+.host-row{display:flex;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;margin-bottom:30px}
+.host{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;max-width:200px}
+.host-photo{width:clamp(96px,12vw,124px);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:var(--bg-alt);position:relative;border:1px solid var(--line)}
+.host-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.host-photo .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  border:1px dashed var(--line);border-radius:50%;color:var(--soft)}
+.host-photo .placeholder svg{width:24px;height:24px;opacity:.55}
+[data-theme="willow"] .host-photo{border-color:var(--accent);border-width:1.5px}
+[data-theme="willow"] .host-photo::after{content:"";position:absolute;inset:5px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.5);pointer-events:none;z-index:2}
+.host-name{font-family:var(--display);font-weight:var(--display-weight);font-size:1.12rem;margin:0 0 2px}
+.host-role{font-size:.82rem;color:var(--soft);margin:0;line-height:1.45}
+body.editing .host-photo{cursor:pointer}
+body.editing .host-photo:hover{filter:brightness(.94)}
+
+.hosts .thanks-text{margin:0 auto;text-align:center;font-size:.88rem;line-height:1.65;
+  color:var(--soft);max-width:56ch}
+.hosts .thanks-text b{font-weight:600;color:var(--ink)}
+.hosts .thanks-text i{font-family:var(--display);font-style:italic;color:var(--ink)}
+@media(max-width:560px){.host-row{gap:30px}}

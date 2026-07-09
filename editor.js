@@ -264,7 +264,7 @@
     fileInput.addEventListener("change",function(){
       var f=fileInput.files[0]; if(!f||!pendingKey) return;
       var key=pendingKey; pendingKey=null;
-      var small = key.indexOf("gp-")===0 || key==="portrait";
+      var small = key.indexOf("gp-")===0 || key==="portrait" || key==="thanks" || key.indexOf("host-")===0;
       var maxW = small ? 620 : 1400;
       var q    = small ? 0.74 : 0.82;
       shrink(f,maxW,q,function(url){

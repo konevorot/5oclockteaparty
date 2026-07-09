@@ -507,3 +507,18 @@ body.editing .wl-group.hint .gift .gphoto{margin:0 22px}
   .hero{min-height:auto;padding:40px 0}
   .portrait{width:88px}
 }
+
+/* ============================================================
+   ФИКС: иконки внутри кнопок не должны растягиваться
+   (SVG без width/height в flex-контейнере тянется во всю высоту)
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.2}
+.btn svg{width:15px;height:15px;flex:0 0 auto}
+.btn > span{white-space:nowrap}
+.cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cta .btn{flex:0 0 auto}
+.cal-row{align-items:center}
+.cal-row .btn{flex:0 0 auto}
+
+/* пять деталей: три колонки, второй ряд из двух — спокойнее, чем 4 + 1 */
+.cards{grid-template-columns:repeat(auto-fit,minmax(272px,1fr))}
